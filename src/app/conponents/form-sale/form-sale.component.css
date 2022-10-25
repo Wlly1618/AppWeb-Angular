@@ -1,0 +1,36 @@
+button {
+    margin-left: 10px;
+}
+
+mat-form-field {
+    margin: 15px;
+}
+
+.container {
+    margin: 20px;
+}
+
+table {
+    font-style: normal;
+    font-size: medium;
+}
+
+h3 {
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: center;
+}
+
+h4 {
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: center;
+}
+
+mat-card {
+    margin: 20px;
+}
+
+mat-card-title{
+    margin: 20px;
+}

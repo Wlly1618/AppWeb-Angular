@@ -1,0 +1,76 @@
+<mat-card>
+    <mat-card-title> Factura </mat-card-title>
+
+    <mat-card>
+        <form (submit)="createInvoice(idClient, idSeller)">
+            <mat-form-field appearance="fill">
+                <mat-label>ID Vendedor</mat-label>
+                <input matInput #idSeller type="number">
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+                <mat-label>ID Cliente</mat-label>
+                <input matInput #idClient type="number">
+            </mat-form-field>
+            
+            <button mat-raised-button> Crear Factura </button>
+        </form>
+
+        <table>
+            <thead>
+                <th><h3> Nombre Cliente </h3></th>
+                <th><h3> DNI Cliente </h3></th>
+                <th><h3> Vendedor </h3></th>
+            </thead>
+            <tbody>
+                <th><h4>{{ client.nameClient }}</h4></th>
+                <th><h4>{{ client.dniClient }}</h4></th>
+                <th><h4>{{ seller.nameSeller }}</h4></th>
+            </tbody>
+        </table>
+    </mat-card>
+
+    <mat-card>
+        <form (submit)="createListDetail(idProd, amount)">
+            <mat-form-field appearance="fill">
+                <mat-label>ID Producto</mat-label>
+                <input matInput #idProd type="number">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Cantidad</mat-label>
+                <input matInput #amount (focus)="clean(amount)" type="number">
+            </mat-form-field>
+
+            <button mat-raised-button> Agregar Producto </button>
+            
+        </form>
+        
+        <div>
+            <table>
+                <thead>
+                    <th> <h4>ID</h4> </th>
+                    <th> <h4>Producto</h4> </th>
+                    <th> <h4>Precio</h4> </th>
+                    <th> <h4>Cantidad</h4> </th>
+                    <th> <h4>Total</h4> </th>
+                    <th> <h4>. . .</h4> </th>
+                </thead>
+                <tbody *ngFor="let prod of listDetail">
+                    <th> <h3>{{ prod.Product.idProduct }}</h3> </th>
+                    <th> <h3>{{ prod.Product.nameProd }}</h3> </th>
+                    <th> <h3>{{ prod.Product.priceProd }}</h3> </th>
+                    <th> <h3>{{ prod.amountProd }}</h3> </th>
+                    <th> <h3>{{ prod.amountProd * prod.Product.priceProd}}</h3> </th>
+                    <th> <button mat-raised-button (click)="deleteDetail(prod.Product.idProduct)" > eliminar </button> </th>
+                </tbody>
+            </table>
+            <h2> Total Final = {{total}} </h2>
+        </div>
+
+    </mat-card>
+
+    <mat-card-actions>
+
+    </mat-card-actions>
+</mat-card>
